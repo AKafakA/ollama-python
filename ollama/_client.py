@@ -708,6 +708,7 @@ class AsyncClient(BaseClient):
     images: Optional[Sequence[Union[str, bytes, Image]]] = None,
     options: Optional[Union[Mapping[str, Any], Options]] = None,
     keep_alive: Optional[Union[float, str]] = None,
+    request_id: Optional[str] = None,
   ) -> GenerateResponse: ...
 
   @overload
@@ -727,6 +728,7 @@ class AsyncClient(BaseClient):
     images: Optional[Sequence[Union[str, bytes, Image]]] = None,
     options: Optional[Union[Mapping[str, Any], Options]] = None,
     keep_alive: Optional[Union[float, str]] = None,
+    request_id: Optional[str] = None,
   ) -> AsyncIterator[GenerateResponse]: ...
 
   async def generate(
