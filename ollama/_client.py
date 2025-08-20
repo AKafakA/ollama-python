@@ -65,6 +65,8 @@ from ollama._types import (
   ShowRequest,
   ShowResponse,
   StatusResponse,
+  RequestStatusRequest,
+  RequestStatusResponse,
   Tool,
 )
 
@@ -1144,6 +1146,16 @@ class AsyncClient(BaseClient):
       ProcessResponse,
       'GET',
       '/api/ps',
+    )
+
+  async def requestStatus(self, model: str) -> RequestStatusResponse:
+    return await self._request(
+      RequestStatusResponse,
+      'POST',
+      '/api/status',
+      json=RequestStatusRequest(
+        model=model,
+      ).model_dump(exclude_none=True),
     )
 
 
