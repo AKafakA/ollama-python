@@ -210,6 +210,9 @@ class GenerateRequest(BaseGenerateRequest):
   think: Optional[Union[bool, Literal['low', 'medium', 'high']]] = None
   'Enable thinking mode (for thinking models).'
 
+  request_id: Optional[str] = None
+  'Unique identifier for the request. Useful for tracking and debugging.'
+
 
 class BaseGenerateResponse(SubscriptableBaseModel):
   model: Optional[str] = None

@@ -745,6 +745,7 @@ class AsyncClient(BaseClient):
     images: Optional[Sequence[Union[str, bytes, Image]]] = None,
     options: Optional[Union[Mapping[str, Any], Options]] = None,
     keep_alive: Optional[Union[float, str]] = None,
+    request_id: Optional[str] = None,
   ) -> Union[GenerateResponse, AsyncIterator[GenerateResponse]]:
     """
     Create a response using the requested model.
@@ -773,6 +774,7 @@ class AsyncClient(BaseClient):
         images=list(_copy_images(images)) if images else None,
         options=options,
         keep_alive=keep_alive,
+        request_id=request_id,
       ).model_dump(exclude_none=True),
       stream=stream,
     )
